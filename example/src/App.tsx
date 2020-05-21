@@ -1,10 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import { ExampleComponent } from 'react-slotus'
-import 'react-slotus/dist/index.css'
+import { Layout, LayoutFactory } from './Layout';
 
 const App = () => {
-  return <ExampleComponent text='Create React Library Example 😄1221' />
-}
+  return (
+    <Layout>
+      <LayoutFactory.ReplaceSlot name='Header'>
+        Replace Header
+      </LayoutFactory.ReplaceSlot>
+      <LayoutFactory.ReplaceSlot name='Footer'>
+        Replace Footer Куздфсу Ащщеук
+      </LayoutFactory.ReplaceSlot>
+    </Layout>
+  );
+};
 
-export default App
+export default App;
