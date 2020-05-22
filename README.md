@@ -5,7 +5,6 @@
 [![NPM](https://img.shields.io/npm/v/react-slotus.svg)](https://www.npmjs.com/package/react-slotus)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Badges](https://badgen.net/npm/license/react-slotus)](https://www.npmjs.com/package/react-slotus)
-[![Badges](https://badgen.net/npm/v/react-slotus)](https://www.npmjs.com/package/react-slotus)
 [![Badges](https://badgen.net/npm/dependents/react-slotus)](https://www.npmjs.com/package/react-slotus)
 [![Badges](https://badgen.net/npm/types/react-slotus)](https://www.npmjs.com/package/react-slotus)
 [![Badges](https://badgen.net/github/issues/kolengri/react-slotus)](https://www.npmjs.com/package/react-slotus)
