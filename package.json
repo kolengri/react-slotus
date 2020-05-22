@@ -1,8 +1,14 @@
 {
   "name": "react-slotus",
   "version": "0.9.9",
-  "description": "Vue like slot layout for React",
+  "description": "Vue js like slot layout for React",
   "author": "kolengri",
+  "keywords": [
+    "react",
+    "slots",
+    "layouts",
+    "vue js like"
+  ],
   "license": "MIT",
   "repository": "kolengri/react-slotus",
   "main": "dist/index.js",
