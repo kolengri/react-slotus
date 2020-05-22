@@ -14,8 +14,9 @@ export const Layout: React.FC<LayoutProps> = (props) => {
     <LayoutFactory.Layout>
       <LayoutFactory.ReserveSlot name='Header'>
         Header
+        <br />
       </LayoutFactory.ReserveSlot>
-      <br />
+
       <LayoutFactory.ReserveSlot name='Content'>
         Content
       </LayoutFactory.ReserveSlot>

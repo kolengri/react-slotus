@@ -11,12 +11,13 @@ export type ReplaceSlotProps<SlotNames extends string> = {
 const ReplaceSlotMemo: React.FC<ReplaceSlotProps<string>> = (props) => {
   const { name, children } = props;
   const context = React.useContext(LayoutContext);
-  const slotAdded = !!context?.slots?.[name];
 
   React.useEffect(() => {
-    if (context && !slotAdded) {
+    if (context) {
       context.mountSlot(name, children);
+    }
 
+    if (context) {
       return () => {
         context.unMountSlot(name);
       };
