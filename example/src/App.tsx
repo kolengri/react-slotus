@@ -4,17 +4,20 @@ import { Layout, LayoutFactory } from './Layout';
 
 const App = () => {
   const [counter, setCounter] = React.useState(0);
+  const inc = () => setCounter(counter + 1);
   return (
     <Layout>
       <LayoutFactory.ReplaceSlot name='Header'>
-        Replace Header
-        <button onClick={() => setCounter(counter + 1)}>+1</button>
-        <br />
+        <>
+          Replace Header
+          <br />
+        </>
       </LayoutFactory.ReplaceSlot>
       <LayoutFactory.ReplaceSlot name='Footer'>
-        Replace Footer {counter}
+        Replace Footer
+        {counter}
       </LayoutFactory.ReplaceSlot>
-      <br />
+      <button onClick={inc}>+1</button>
     </Layout>
   );
 };

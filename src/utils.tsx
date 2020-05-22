@@ -1,11 +1,11 @@
-import { createElement } from 'react'
+import { createElement } from 'react';
 import {
   LayoutWrapper,
   ReserveSlot,
   ReplaceSlot,
   ReplaceSlotProps,
   ReserveSlotProps
-} from './components'
+} from './components';
 
 export const createSlotLayout = <SlotNames extends string>() => ({
   Layout: LayoutWrapper,
@@ -13,4 +13,4 @@ export const createSlotLayout = <SlotNames extends string>() => ({
     createElement(ReplaceSlot, props),
   ReserveSlot: (props: ReserveSlotProps<SlotNames>) =>
     createElement(ReserveSlot, props)
-})
+});

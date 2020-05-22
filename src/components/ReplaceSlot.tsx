@@ -26,7 +26,7 @@ const ReplaceSlotMemo: React.FC<ReplaceSlotProps<string>> = (props) => {
     if (!context) {
       console.error(NO_CONTEXT_PROVIDER);
     }
-  }, []);
+  }, [children]);
 
   return null;
 };
