@@ -1,23 +1,23 @@
-import './index.css'
+import './index.css';
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from './App'
+import App from './App';
 
 const render = (Component: React.FC) => {
   return ReactDOM.render(
     <Component />,
 
     document.getElementById('root')
-  )
-}
+  );
+};
 
-render(App)
+render(App);
 
 if ((module as any).hot) {
-  ;(module as any).hot.accept('./App', () => {
-    const NextApp = require('./App').default
-    render(NextApp)
-  })
+  (module as any).hot.accept('./App', () => {
+    const NextApp = require('./App').default;
+    render(NextApp);
+  });
 }
