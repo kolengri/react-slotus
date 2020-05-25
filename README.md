@@ -23,6 +23,13 @@ yarn add  react-slotus
 
 ## Usage
 
+The aim of this package is to end up with annoying practice of passing the subcomponents to the layouts using properties. The package allows you to create and use layouts with replaceable default slots with pure JSX/TSX syntax.
+
+Use SlotFactory.Layout to create own layout.
+Use SlotFactory.ReserveSlot to mark a default replaceable slot in it.
+Use SlotFactory.ReplaceSlot to replace a default slot while using your layout.
+
+
 ### Prepare your Layout
 
 ```tsx
