@@ -15,9 +15,9 @@ const ReserveSlotMemo: React.FC<ReserveSlotProps<string>> = (props) => {
   const content: React.ReactNode | undefined = context?.slots?.[name];
 
   if (typeof children === 'function') {
-    return (children as Function)(content) as JSX.Element;
+    return <React.Fragment>{(children as Function)(content)}</React.Fragment>;
   }
-  return (content || children || null) as JSX.Element;
+  return <React.Fragment>{content || children}</React.Fragment>;
 };
 
 export const ReserveSlot = React.memo(ReserveSlotMemo);
