@@ -28,7 +28,7 @@ const ReplaceSlotMemo: React.FC<ReplaceSlotProps<string>> = (props) => {
     }
   }, [children]);
 
-  return <React.Fragment />;
+  return null;
 };
 
 export const ReplaceSlot = React.memo(ReplaceSlotMemo);
