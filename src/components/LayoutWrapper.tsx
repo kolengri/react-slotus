@@ -5,15 +5,16 @@ import { DUPLICATE_SLOT_NAME } from '../errors';
 
 export type LayoutWrapperProps = {
   children: React.ReactNode;
+  allowOverride?: boolean;
 };
 
 const LayoutWrapperMemo: React.FC<LayoutWrapperProps> = (props) => {
-  const { children } = props;
+  const { children, allowOverride } = props;
   const [slots, setSlots] = React.useState<LayoutSlots<string>>({});
 
   const mountSlot: MountSlot<string> = (name, slot) => {
     setSlots((p) => {
-      if (p[name]) {
+      if (p[name] && !allowOverride) {
         console.warn(DUPLICATE_SLOT_NAME, name);
         return p;
       }
