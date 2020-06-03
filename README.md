@@ -84,6 +84,31 @@ export const App = () => {
 };
 ```
 
+### Optionally allow ReplaceSlot components with same name to override each other
+
+This is especially useful for route transitions, where you briefly have both routes in DOM at the same time.
+In example below, "Replace Header 2" will be rendered
+
+```tsx
+// App.tsx
+import React from 'react';
+
+import { Layout, SlotFactory } from './Layout';
+
+export const App = () => {
+  return (
+    <Layout allowOverride>
+      <SlotFactory.ReplaceSlot name='Header'>
+        Replace Header 1
+      </SlotFactory.ReplaceSlot>
+      <SlotFactory.ReplaceSlot name='Header'>
+        Replace Header 2
+      </SlotFactory.ReplaceSlot>
+    </Layout>
+  );
+};
+```
+
 ## License
 
 MIT © [kolengri](https://github.com/kolengri)
