@@ -12,19 +12,15 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   const { children } = props;
   return (
     <LayoutFactory.Layout>
-      <LayoutFactory.ReserveSlot name='Header'>
+      {children}
+      <LayoutFactory.Reserve name='Header'>
         Header
         <br />
-      </LayoutFactory.ReserveSlot>
+      </LayoutFactory.Reserve>
 
-      <LayoutFactory.ReserveSlot name='Content'>
-        Content
-      </LayoutFactory.ReserveSlot>
+      <LayoutFactory.Reserve name='Content'>Content</LayoutFactory.Reserve>
       <br />
-      <LayoutFactory.ReserveSlot name='Footer'>
-        Footer
-      </LayoutFactory.ReserveSlot>
-      {children}
+      <LayoutFactory.Reserve name='Footer'>Footer</LayoutFactory.Reserve>
     </LayoutFactory.Layout>
   );
 };

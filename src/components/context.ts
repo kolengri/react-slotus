@@ -11,10 +11,15 @@ export type MountSlot<SlotNames extends string> = (
 
 export type UnMountSlot<SlotNames extends string> = (name: SlotNames) => void;
 
+export type Ref<SlotNames extends string> = {
+  slots: LayoutSlots<SlotNames>;
+  replaceMounted: boolean;
+};
+
 export type LayoutContext<SlotNames extends string> = {
-  slots: LayoutSlots<SlotNames> | null;
+  ref: React.MutableRefObject<Ref<SlotNames> | undefined>;
   mountSlot: MountSlot<SlotNames>;
-  unMountSlot: UnMountSlot<SlotNames>;
+  mountReplace: () => void;
 } | null;
 
 export const LayoutContext = React.createContext<LayoutContext<string>>(null);

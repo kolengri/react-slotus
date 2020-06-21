@@ -9,8 +9,8 @@ import {
 
 export const createSlotLayout = <SlotNames extends string>() => ({
   Layout: LayoutWrapper,
-  ReplaceSlot: (props: ReplaceSlotProps<SlotNames>) =>
+  Replace: (props: ReplaceSlotProps<SlotNames>) =>
     createElement(ReplaceSlot, props),
-  ReserveSlot: (props: ReserveSlotProps<SlotNames>) =>
+  Reserve: (props: ReserveSlotProps<SlotNames>) =>
     createElement(ReserveSlot, props)
 });

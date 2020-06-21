@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { LayoutContext } from '../context';
-import { NO_CONTEXT_PROVIDER } from '../errors';
+import { LayoutContext } from './context';
+import { PASS_CHILDREN_BEFORE_REPLACE } from '../errors';
 
 export type ReplaceSlotProps<SlotNames extends string> = {
   name: SlotNames;
@@ -12,22 +12,17 @@ const ReplaceSlotMemo: React.FC<ReplaceSlotProps<string>> = (props) => {
   const { name, children } = props;
   const context = React.useContext(LayoutContext);
 
-  React.useEffect(() => {
-    if (context) {
-      context.mountSlot(name, children);
-    }
+  if (context) {
+    const { ref, mountSlot } = context;
 
-    if (context) {
-      return () => {
-        context.unMountSlot(name);
-      };
-    }
+    mountSlot(name, children);
 
-    if (!context) {
-      console.error(NO_CONTEXT_PROVIDER);
+    if (ref.current?.replaceMounted) {
+      throw new Error(
+        PASS_CHILDREN_BEFORE_REPLACE + `Error in ${name} slot component`
+      );
     }
-  }, [children]);
-
+  }
   return null;
 };
 

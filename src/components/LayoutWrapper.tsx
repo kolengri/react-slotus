@@ -1,43 +1,37 @@
 import * as React from 'react';
 
-import { LayoutContext, LayoutSlots, MountSlot, UnMountSlot } from '../context';
-import { DUPLICATE_SLOT_NAME } from '../errors';
+import { LayoutContext, MountSlot, Ref } from './context';
 
 export type LayoutWrapperProps = {
   children: React.ReactNode;
-  allowOverride?: boolean;
 };
 
 const LayoutWrapperMemo: React.FC<LayoutWrapperProps> = (props) => {
-  const { children, allowOverride } = props;
-  const [slots, setSlots] = React.useState<LayoutSlots<string>>({});
-
-  const mountSlot: MountSlot<string> = (name, slot) => {
-    setSlots((p) => {
-      if (p[name] && !allowOverride) {
-        console.warn(DUPLICATE_SLOT_NAME, name);
-        return p;
-      }
-      return {
-        ...p,
-        [name]: slot
-      };
-    });
+  const { children } = props;
+  const ref = React.useRef<Ref<string>>();
+  ref.current = {
+    replaceMounted: false,
+    slots: {}
   };
 
-  const unMountSlot: UnMountSlot<string> = (name) => {
-    setSlots((p) => ({
-      ...p,
-      [name]: undefined
-    }));
+  const mountSlot: MountSlot<string> = (name, slot) => {
+    if (ref.current) {
+      ref.current.slots[name] = slot;
+    }
+  };
+
+  const mountReplace = () => {
+    if (ref.current) {
+      ref.current.replaceMounted = true;
+    }
   };
 
   return (
     <LayoutContext.Provider
       value={{
-        slots,
+        ref,
         mountSlot,
-        unMountSlot
+        mountReplace
       }}
     >
       {children}

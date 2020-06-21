@@ -7,16 +7,23 @@ const App = () => {
   const inc = () => setCounter(counter + 1);
   return (
     <Layout>
-      <LayoutFactory.ReplaceSlot name='Header'>
+      <LayoutFactory.Replace name='Header'>
         <>
           Replace Header
           <br />
         </>
-      </LayoutFactory.ReplaceSlot>
-      <LayoutFactory.ReplaceSlot name='Footer'>
+      </LayoutFactory.Replace>
+      <LayoutFactory.Replace name='Content'>
+        <>
+          Replace Content
+          <br />
+        </>
+      </LayoutFactory.Replace>
+      <LayoutFactory.Replace name='Footer'>
         Replace Footer
         {counter}
-      </LayoutFactory.ReplaceSlot>
+      </LayoutFactory.Replace>
+
       <button onClick={inc}>+1</button>
     </Layout>
   );

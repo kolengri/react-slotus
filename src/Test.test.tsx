@@ -9,9 +9,9 @@ const LF = createSlotLayout<'header' | 'content' | 'footer'>();
 const TestComponent: React.FC = (props) => {
   return (
     <LF.Layout>
-      <LF.ReserveSlot name='header'>header</LF.ReserveSlot>
-      <LF.ReserveSlot name='content'>content</LF.ReserveSlot>
-      <LF.ReserveSlot name='footer'>footer</LF.ReserveSlot>
+      <LF.Reserve name='header'>header</LF.Reserve>
+      <LF.Reserve name='content'>content</LF.Reserve>
+      <LF.Reserve name='footer'>footer</LF.Reserve>
       {props.children}
     </LF.Layout>
   );
@@ -20,7 +20,7 @@ const TestComponent: React.FC = (props) => {
 const component = renderer.create(<TestComponent />);
 const componentWithReplacedSlots = renderer.create(
   <TestComponent>
-    <LF.ReplaceSlot name='header'>replaced header</LF.ReplaceSlot>
+    <LF.Replace name='header'>replaced header</LF.Replace>
   </TestComponent>
 );
 
@@ -31,9 +31,7 @@ describe('Layout Factory', () => {
   });
   it('Replaced layout is working', () => {
     const tree = componentWithReplacedSlots.toJSON();
-    setTimeout(() => {
-      // this should fail:
-      expect(tree).toStrictEqual(['replaced header', 'content', 'footer']);
-    });
+    // this should fail:
+    expect(tree).toStrictEqual(['replaced header', 'content', 'footer']);
   });
 });
