@@ -92,7 +92,7 @@ import { Layout, SlotFactory } from './Layout';
 
 export const App = () => {
   return (
-    <Layout allowOverride>
+    <Layout>
       <SlotFactory.Replace name='Header'>Replace Header 1</SlotFactory.Replace>
       <SlotFactory.Replace name='Header'>Replace Header 2</SlotFactory.Replace>
     </Layout>
