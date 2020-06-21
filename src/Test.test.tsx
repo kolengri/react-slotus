@@ -6,13 +6,13 @@ import { createSlotLayout } from '.';
 
 const LF = createSlotLayout<'header' | 'content' | 'footer'>();
 
-const TestComponent: React.FC = (props) => {
+const TestComponent: React.FC = ({ children }) => {
   return (
     <LF.Layout>
+      {children}
       <LF.Reserve name='header'>header</LF.Reserve>
       <LF.Reserve name='content'>content</LF.Reserve>
       <LF.Reserve name='footer'>footer</LF.Reserve>
-      {props.children}
     </LF.Layout>
   );
 };
