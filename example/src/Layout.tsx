@@ -12,12 +12,13 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   const { children } = props;
   return (
     <LayoutFactory.Layout>
+      {children}
+
       <LayoutFactory.Reserve name='Header'>Header</LayoutFactory.Reserve>
       <br />
       <LayoutFactory.Reserve name='Content'>Content</LayoutFactory.Reserve>
       <br />
       <LayoutFactory.Reserve name='Footer'>Footer</LayoutFactory.Reserve>
-      {children}
     </LayoutFactory.Layout>
   );
 };
