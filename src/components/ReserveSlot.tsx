@@ -9,7 +9,7 @@ export type ReserveSlotProps<SlotNames extends string> = {
   children?: React.ReactNode | F;
 };
 
-const ReserveSlotMemo: React.FC<ReserveSlotProps<string>> = (props) => {
+const ReserveMemo: React.FC<ReserveSlotProps<string>> = (props) => {
   const { name, children } = props;
   const context = React.useContext(LayoutContext);
   const content: React.ReactNode | undefined =
@@ -26,6 +26,6 @@ const ReserveSlotMemo: React.FC<ReserveSlotProps<string>> = (props) => {
   return <React.Fragment>{content || children}</React.Fragment>;
 };
 
-export const ReserveSlot = React.memo(ReserveSlotMemo);
+export const Reserve = React.memo(ReserveMemo);
 
-export default ReserveSlot;
+export default Reserve;

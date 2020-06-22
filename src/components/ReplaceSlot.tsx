@@ -3,12 +3,12 @@ import * as React from 'react';
 import { LayoutContext } from './context';
 import { PASS_CHILDREN_BEFORE_REPLACE } from '../errors';
 
-export type ReplaceSlotProps<SlotNames extends string> = {
+export type ReplaceSlotProps<SlotNames extends string = string> = {
   name: SlotNames;
   children: React.ReactNode;
 };
 
-const ReplaceSlotMemo: React.FC<ReplaceSlotProps<string>> = (props) => {
+const ReplaceMemo: React.FC<ReplaceSlotProps> = (props) => {
   const { name, children } = props;
   const context = React.useContext(LayoutContext);
 
@@ -26,6 +26,6 @@ const ReplaceSlotMemo: React.FC<ReplaceSlotProps<string>> = (props) => {
   return null;
 };
 
-export const ReplaceSlot = React.memo(ReplaceSlotMemo);
+export const Replace = React.memo(ReplaceMemo);
 
-export default ReplaceSlot;
+export default Replace;

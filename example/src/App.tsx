@@ -8,22 +8,19 @@ const App = () => {
   return (
     <Layout>
       <LayoutFactory.Replace name='Header'>
-        <>
-          Replace Header
-          <br />
-        </>
+        Replace Header
       </LayoutFactory.Replace>
       <LayoutFactory.Replace name='Content'>
-        <>
-          Replace Content
-          <br />
-        </>
+        Replace Content
       </LayoutFactory.Replace>
       <LayoutFactory.Replace name='Footer'>
-        Replace Footer
-        {counter}
+        <div style={{ color: 'green' }}>
+          Replace Footer
+          {counter}
+          <div style={{ color: 'red' }}>test</div>
+          <div>test</div>
+        </div>
       </LayoutFactory.Replace>
-
       <button onClick={inc}>+1</button>
     </Layout>
   );

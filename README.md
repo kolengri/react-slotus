@@ -23,7 +23,7 @@ yarn add  react-slotus
 
 ## Usage
 
-The aim of this package is to end up with annoying practice of passing the subcomponents to the layouts using properties. The package allows you to create and use layouts with replaceable default slots with pure JSX/TSX syntax.
+The aim of this package is to end up with annoying practice of passing the sub components to the layouts using properties. The package allows you to create and use layouts with replaceable default slots with pure JSX/TSX syntax.
 
 Use SlotFactory.Layout to create own layout.
 Use SlotFactory.Reserve to mark a default replaceable slot in it.
@@ -49,7 +49,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <SlotFactory.Layout>
       {/**
-       * Pass children before Reserve component is important!
+       * Pass children is important!
        */}
       {children}
       <SlotFactory.Reserve name='Header'>Header</SlotFactory.Reserve>
@@ -65,12 +65,14 @@ export const Layout: React.FC<LayoutProps> = (props) => {
 ```tsx
 // App.tsx
 import React from 'react';
-
 import { Layout, SlotFactory } from './Layout';
 
 export const App = () => {
   return (
     <Layout>
+      {/**
+        * Replace on first level of node tree is important!
+        */}
       <SlotFactory.Replace name='Header'>Replace Header</SlotFactory.Replace>
       <SlotFactory.Replace name='Content'>Replace Content</SlotFactory.Replace>
       <SlotFactory.Replace name='Footer'>Replace Footer</SlotFactory.Replace>

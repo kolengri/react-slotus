@@ -1,16 +1,24 @@
-import { createElement } from 'react';
+import * as React from 'react';
+
 import {
-  LayoutWrapper,
-  ReserveSlot,
-  ReplaceSlot,
+  Layout,
+  LayoutWrapperProps,
+  Reserve,
+  Replace,
   ReplaceSlotProps,
   ReserveSlotProps
 } from './components';
 
-export const createSlotLayout = <SlotNames extends string>() => ({
-  Layout: LayoutWrapper,
-  Replace: (props: ReplaceSlotProps<SlotNames>) =>
-    createElement(ReplaceSlot, props),
-  Reserve: (props: ReserveSlotProps<SlotNames>) =>
-    createElement(ReserveSlot, props)
+type CreateResult<SlotNames extends string> = {
+  Layout: React.FC<LayoutWrapperProps>;
+  Replace: React.FC<ReplaceSlotProps<SlotNames>>;
+  Reserve: React.FC<ReserveSlotProps<SlotNames>>;
+};
+
+export const createSlotLayout = <SlotNames extends string>(): CreateResult<
+  SlotNames
+> => ({
+  Layout,
+  Reserve,
+  Replace
 });
