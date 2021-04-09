@@ -1,5 +1,5 @@
 # DEPRECATED
-Please use (https://github.com/kolengri/react-slot-component)[React Slot Component]
+Please use [React Slot Component](https://github.com/kolengri/react-slot-component)
 
 # Vue like slot layout
 
