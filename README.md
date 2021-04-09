@@ -1,3 +1,6 @@
+# DEPRECATED
+Please use (https://github.com/kolengri/react-slot-component)[React Slot Component]
+
 # Vue like slot layout
 
 ## react-slotus
